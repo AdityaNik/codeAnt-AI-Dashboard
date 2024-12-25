@@ -1,5 +1,6 @@
-import { Home, Code2, Cloud, HelpCircle, Settings, PhoneCall, LogOut } from 'lucide-react';
+import { Home, Code2, Cloud, HelpCircle, Settings, PhoneCall, LogOut, LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const menuItems = [
   { icon: Home, label: 'Repositories', active: true },
@@ -7,6 +8,7 @@ const menuItems = [
   { icon: Cloud, label: 'Cloud Security' },
   { icon: HelpCircle, label: 'How to Use' },
   { icon: Settings, label: 'Settings' },
+  { icon: LogIn, label: 'Auth Page' }
 ];
 
 const downItems = [
@@ -15,6 +17,8 @@ const downItems = [
 ];
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="border-r bg-card p-4 flex flex-col h-full">
       <div className="flex items-center gap-2 px-2 mb-8">
@@ -31,6 +35,9 @@ const Sidebar = () => {
                 "w-full flex items-center gap-3 p-3 rounded-md text-md bg-inherit",
                 item.active ? "bg-blue-600 text-white" : ""
               )}
+              onClick={() => {
+                item.label === 'Auth Page'? navigate('/auth') : navigate('/');
+              }}
             >
               <item.icon className="h-4 w-4" />
               {item.label}
