@@ -1,6 +1,6 @@
 import { Home, Code2, Cloud, HelpCircle, Settings, PhoneCall, LogOut, LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const menuItems = [
   { icon: Home, label: 'Repositories', active: true },
